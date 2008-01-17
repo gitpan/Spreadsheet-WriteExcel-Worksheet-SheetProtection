@@ -5,7 +5,7 @@ use strict;
 
 use vars '$VERSION';
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 BEGIN {
 	use Spreadsheet::WriteExcel::Worksheet;

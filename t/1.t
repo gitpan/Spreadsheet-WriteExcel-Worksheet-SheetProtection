@@ -7,7 +7,7 @@ use Spreadsheet::WriteExcel;
 use Spreadsheet::WriteExcel::Worksheet::SheetProtection;
 ok(1); # If we made it this far, we're ok.
 
-my $test_file = 'test.xsl';
+my $test_file = 'test.xls';
 
 ## Create a test spreadsheet
 my $wb = Spreadsheet::WriteExcel->new($test_file);
@@ -39,7 +39,8 @@ SKIP: {
 	my $contents = '';
 	my $buffer;
 	
-	open $fh, "<b", "test.xls" or die "Can't open test file";
+	open $fh, $test_file or die "Can't open test file";
+	binmode $fh;
 	while (read($fh, $buffer, 1024)) {
 		$contents .= $buffer;
 	}
